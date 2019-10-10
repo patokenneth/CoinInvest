@@ -1,0 +1,88 @@
+﻿@model CoinInvest.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+
+}
+
+<div class="row ">
+
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+        <div class="ft-logo"><img src="~/Content/assets/images/logo.png" alt=""></div>
+    </div>
+</div>
+@*<h2>@ViewBag.Title.</h2>*@
+
+@**
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <h4>Create a new account.</h4>
+        <hr />
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default" value="Register" />
+            </div>
+        </div>
+*@
+
+<div class="offset-xl-3 col-xl-6 offset-lg-1 col-lg-10 col-md-12 col-sm-12 col-12 ">
+    <div class="register-form">
+        <h2 class="text-center mb30">Join CoinInvest</h2>
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <label class="control-label sr-only" for="name"></label>
+                <input id="name" type="text" name="FirstName" placeholder="user name" class="form-control" required>
+                @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label class="control-label sr-only" for="email"></label>
+                <input id="email" type="text" name="Email" placeholder="Email" class="form-control" required>
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label class="control-label sr-only" for="Password"></label>
+                <input id="password" type="password" name="Password" placeholder="create password" class="form-control" required>
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label class="control-label sr-only" for="password"></label>
+                <input id="password" type="password" name="ConfirmPassword" placeholder="confirm password" class="form-control" required>
+                @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+            </div>
+            <span>
+                <input id="box1" type="checkbox" class="with-font">
+                <label for="box1"></label>
+
+            </span>
+            <p class="register-text">I certify that I am 18 years of age or older, and I agree to the User Agreement and<a href="#" class="btn-link"> Privacy Policy.</a></p>
+            <button type="submit" name="singlebutton" class="btn btn-default btn-lg  btn-block mb10">create Account</button>
+        }
+
+    </div>
+    <p class="text-white">Already have an account?<a href="~/Account/Login" class="text-yellow"> Sign In</a> <span class="pull-right"><a href="~/Home/Index" class="text-white">Back to Home</a></span> </p>
+</div>
+
+

@@ -1,0 +1,56 @@
+﻿@model CoinInvest.DAL.Plan
+@{
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+
+
+
+<div class="row ">
+
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+        <div class="ft-logo"><img src="~/Content/assets/images/logo.png" alt=""></div>
+    </div>
+</div>
+
+<div class="offset-xl-3 col-xl-6 offset-lg-1 col-lg-10 col-md-12 col-sm-12 col-12 ">
+    <div class="register-form">
+        <h2 class="text-center mb30">Edit an Investment Plan</h2>
+        @Html.HiddenFor(m => m.ID)
+        @using (Html.BeginForm("Edit", "Investment", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <label class="control-label sr-only" for="name"></label>
+                @*<input id="name" type="text" name="InvestmentName"  placeholder= "plan name" form-control" required>*@
+                @Html.EditorFor(m => m.InvestmentName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.InvestmentName, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label class="control-label sr-only" for="email"></label>
+                @*<input id="email" type="number" name="Amount" placeholder="Amount" class="form-control" required>*@
+                @Html.EditorFor(m => m.Amount)
+                @Html.ValidationMessageFor(m => m.Amount, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label class="control-label sr-only" for="Password"></label>
+                @*<input id="password" type="number" name="MaturityDuration" placeholder="Maturity Duration" class="form-control" required>*@
+                @Html.EditorFor(m => m.MaturityDuration)
+                @Html.ValidationMessageFor(m => m.MaturityDuration, "", new { @class = "text-danger" })
+            </div>
+
+            <span>
+                <input id="box1" type="checkbox" class="with-font">
+                <label for="box1"></label>
+
+            </span>
+
+            <button type="submit" name="singlebutton" class="btn btn-default btn-lg  btn-block mb10">create plan</button>
+        }
+
+    </div>
+
+    @*text-transform: capitalize;*@
+
+</div>

@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Confirmation";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+
+}
+
+<div class="row ">
+
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+        <div class="ft-logo"><img src="~/Content/assets/images/logo.png" alt=""></div>
+    </div>
+</div>
+@*<h2>@ViewBag.Title.</h2>*@
+
+
+
+<div class="offset-xl-3 col-xl-6 offset-lg-1 col-lg-10 col-md-12 col-sm-12 col-12 ">
+    <div class="register-form">
+        <h5 class="text-center mb30">Once payment is confirmed, we will credit your account</h5>
+        @*@using (Html.BeginForm("Confirm", "User", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {*@
+
+            @*<div class="form-group">
+                <label class="control-label sr-only" for="name"></label>
+                <input id="name" type="text" name="FirstName" placeholder="user name" class="form-control" required>
+                @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+            </div>*@
+
+            @*<div class="form-group">
+                <label class="control-label sr-only" for="Password"></label>
+                <input id="password" type="password" name="Password" placeholder="create password" class="form-control" required>
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+            </div>*@
+
+
+
+            @*<button type="submit" name="singlebutton" class="btn btn-default btn-lg  btn-block mb10">Back to home</button>*@
+
+           <a href="~/user/dashboard" class="btn btn-default btn-lg  btn-block mb10" type="submit" name="singlebutton" >Back to home</a>
+        
+
+    </div>
+   
+</div>
+
+

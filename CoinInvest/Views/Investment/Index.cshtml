@@ -1,0 +1,63 @@
+﻿@model IList<CoinInvest.DAL.Plan>
+
+@{
+
+    Layout = "~/Views/Shared/_Investment.cshtml";
+}
+
+
+@*<div class="row ">
+
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+        <div class="ft-logo"><img src="~/Content/assets/images/logo.png" alt=""></div>
+    </div>
+</div*@
+
+     
+ <table class="table table-striped table-bordered">
+     <thead>
+         <tr>
+             <td>
+                 Name
+             </td>
+
+             <td>
+                 Amount
+             </td>
+
+             <td>
+                 Maturity Duration
+             </td>
+         </tr>
+     </thead>
+     
+     <tbody>
+
+         @foreach (var item in Model)
+         {
+         <tr>
+             <td>
+                 @item.InvestmentName
+             </td>
+             <td>
+                 @item.Amount
+             </td>
+
+             <td>
+                 @item.MaturityDuration
+             </td>
+
+             <td>@Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                 @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+             </td>
+             
+         </tr>
+         }
+     </tbody>
+
+ </table>
+    
+<style>
+    body { padding-top: 5px;}
+</style>
+
